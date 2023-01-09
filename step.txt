@@ -1,0 +1,20 @@
+3 java files
+
+Compile
+javac -classpath hadoop-core-1.2.1.jar -d wordcountproblem WC_Mapper.java WC.Reducer.java WC_Runner.java
+
+Create Jar
+jar -cvf wordcountproblem.jar -C wordcountproblem /
+
+start theHadoop
+start-dfs.sh
+start-yarn.sh
+
+http://localhost:9870/
+create folder and upload data file
+
+Run program
+hadoop jar wordcountproblem.jar com.wordcountproblem.WC_Runner /data.txt /output_path
+
+printoutput
+hdfs dfs -cat /output_path/part-00000
